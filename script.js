@@ -41,9 +41,12 @@ window.addEventListener('load', () => {
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
             const id = entry.target.getAttribute('id');
             const activeLi = document.querySelector(`nav ul li a[href="#${id}"]`).parentElement;
             updateIndicator(activeLi);
+        } else {
+            entry.target.classList.remove('visible');
         }
     });
 }, { threshold: 0.7 });
