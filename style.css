@@ -193,13 +193,41 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative; /* Needed for absolute positioning of secondary images */
 }
 
-.home-image img {
+.home-image .main-image {
     max-width: 100%;
     max-height: 70vh;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 2;
+}
+
+.home-image .secondary-image {
+    position: absolute;
+    max-width: 90%;
+    max-height: 65vh;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    opacity: 0;
+    z-index: 1;
+}
+
+.home-image:hover .main-image {
+    transform: scale(1.05);
+}
+
+.home-image:hover .secondary-image.left {
+    opacity: 1;
+    transform: translateX(-60%) rotate(-15deg);
+}
+
+.home-image:hover .secondary-image.right {
+    opacity: 1;
+    transform: translateX(60%) rotate(15deg);
 }
 
 .cta-button {
