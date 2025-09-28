@@ -113,3 +113,80 @@ nav {
 #contact {
     background-color: #c0c0c0;
 }
+
+/* Home Section Layout */
+#home {
+    background-color: black; /* Flipped */
+    position: relative; /* Required for the pseudo-element */
+    overflow: hidden; /* Ensures the pseudo-element doesn't bleed out */
+}
+
+#home::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 55%;
+    height: 100%;
+    background-color: #f0f0f0; /* Flipped */
+    clip-path: path('M 0 0 H 800 C 700 300, 900 700, 800 1000 H 0 Z');
+    transform: scaleX(1.2); /* Scale to ensure it covers the area */
+}
+
+.home-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    width: 80%;
+    max-width: 1200px;
+    z-index: 1; /* Ensure content is above the background */
+}
+
+.home-text {
+    flex: 1;
+}
+
+.home-text h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.home-text h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: normal;
+}
+
+.home-text p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.home-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-image img {
+    max-width: 100%;
+    max-height: 70vh;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.cta-button {
+    background-color: black;
+    color: white;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #333;
+}
