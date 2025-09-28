@@ -144,6 +144,10 @@ nav {
     background-color: black; /* Flipped */
     position: relative; /* Required for the pseudo-element */
     overflow: hidden; /* Ensures the pseudo-element doesn't bleed out */
+    flex-direction: row;
+    gap: 5rem;
+    padding: 0 10%;
+    box-sizing: border-box;
 }
 
 #home::before {
@@ -158,18 +162,9 @@ nav {
     transform: scaleX(1.2); /* Scale to ensure it covers the area */
 }
 
-.home-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    width: 80%;
-    max-width: 1200px;
-    z-index: 1; /* Ensure content is above the background */
-}
-
 .home-text {
     flex: 1;
+    z-index: 1;
 }
 
 .home-text h1 {
@@ -194,6 +189,7 @@ nav {
     justify-content: center;
     align-items: center;
     position: relative; /* Needed for absolute positioning of secondary images */
+    z-index: 1;
 }
 
 .home-image .main-image {
