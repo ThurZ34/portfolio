@@ -10,22 +10,34 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Moving indicator logic
 const sections = document.querySelectorAll('.section');
-const navLi = document.querySelectorAll('nav ul li');
+const navItems = document.querySelectorAll('nav ul li');
 const indicator = document.querySelector('.nav-indicator');
 
 function updateIndicator(activeLi) {
     if (!activeLi) return;
+
+    navItems.forEach(item => item.classList.remove('active'));
+    activeLi.classList.add('active');
+
     indicator.style.width = `${activeLi.offsetWidth}px`;
     indicator.style.left = `${activeLi.offsetLeft}px`;
+
+    if (activeLi.classList.contains('contact-button')) {
+        indicator.style.backgroundColor = 'black';
+        indicator.style.borderColor = 'black';
+    } else {
+        indicator.style.backgroundColor = 'transparent';
+        indicator.style.borderColor = 'black';
+    }
 }
 
-// Set initial indicator position
+// Set initial indicator position on page load
 window.addEventListener('load', () => {
-    const initialActiveLi = document.querySelector('nav ul li:first-child');
+    const initialActiveLi = document.querySelector('nav ul li.active') || document.querySelector('nav ul li:first-child');
     updateIndicator(initialActiveLi);
 });
 
-// Update indicator on scroll
+// Update indicator on scroll using Intersection Observer
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
