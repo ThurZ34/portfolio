@@ -70,57 +70,45 @@ body {
     margin-left: 20px;
 }
 
-/* 1. WADAH UTAMA (Layar Penuh) */
 #home {
-    /* Kunci tinggi wadah pas setinggi layar monitor */
     height: 100vh; 
     width: 100%;
     
     display: flex;
-    /* align-items JANGAN 'center', tapi 'stretch' (default). 
-       Biar kartunya ketarik panjang ke atas & bawah. */
     
-    padding: 20px; /* Jarak aman dari pinggir layar monitor */
-    gap: 20px; /* Celah antar kartu */
+    padding: 20px;
+    gap: 20px;
     
-    /* Tambahkan margin-top karena navbar kamu sticky/fixed */
     padding-top: 80px; 
 }
 
-/* 2. KOLOM KIRI (Pembungkus Name & About) */
 .main {
-    flex: 1; /* ARTINYA: Ambil 50% lebar layar yang tersedia */
+    flex: 1;
     display: flex;
     flex-direction: column;
     gap: 20px;
-    height: 100%; /* Penuhi tinggi wadah #home */
+    height: 100%;
 }
 
-/* 3. KOLOM KANAN (Image) */
 .card-image {
-    flex: 1; /* ARTINYA: Ambil 50% lebar layar sisanya */
-    height: 100%; /* Penuhi tinggi dari atas sampai bawah */
-    
+    flex: 1;
+    height: 100%; 
     background-color: #414A37;
     border-radius: 20px;
     color: white;
-    
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* 4. ISI KOLOM KIRI */
 
 .card-name {
-    /* RAHASIA BENTO: Gunakan flex-grow */
-    flex: 2; /* Ambil 2 bagian ruangan (Lebih Besar/Tinggi) */
-    width: 100%; /* Lebar penuhi kolom .main */
+    flex: 2;
+    width: 100%;
     
     background-color: #414A37;
     border-radius: 20px;
     color: white;
-    
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -128,13 +116,11 @@ body {
 }
 
 .card-about {
-    flex: 1; /* Ambil 1 bagian ruangan (Lebih Kecil/Pendek) */
+    flex: 1;
     width: 100%;
-    
     background-color: #99744A;
     border-radius: 20px;
     color: white;
-    
     display: flex;
     flex-direction: column;
     justify-content: center;
