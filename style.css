@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar {
+    display: none;
+}
+
+html {
+    -ms-overflow-style: none;
+}
+
+body {
+    background-color: #DBC2A6;
+    color: #fff;
+}
+
+.navbar {
+    position: fixed;
+    z-index: 100;
+    top: 10px; 
+    
+    left: 50%; 
+    transform: translateX(-50%); 
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #414A37;
+    padding: 10px 30px; 
+    border-radius: 10px;
+    width: 98%; 
+}
+
+.navbar li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+    padding: 5px
+}
+
+.navbar a:hover {
+    color: #DBC2A6;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+/* 1. WADAH UTAMA (Layar Penuh) */
+#home {
+    /* Kunci tinggi wadah pas setinggi layar monitor */
+    height: 100vh; 
+    width: 100%;
+    
+    display: flex;
+    /* align-items JANGAN 'center', tapi 'stretch' (default). 
+       Biar kartunya ketarik panjang ke atas & bawah. */
+    
+    padding: 20px; /* Jarak aman dari pinggir layar monitor */
+    gap: 20px; /* Celah antar kartu */
+    
+    /* Tambahkan margin-top karena navbar kamu sticky/fixed */
+    padding-top: 80px; 
+}
+
+/* 2. KOLOM KIRI (Pembungkus Name & About) */
+.main {
+    flex: 1; /* ARTINYA: Ambil 50% lebar layar yang tersedia */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%; /* Penuhi tinggi wadah #home */
+}
+
+/* 3. KOLOM KANAN (Image) */
+.card-image {
+    flex: 1; /* ARTINYA: Ambil 50% lebar layar sisanya */
+    height: 100%; /* Penuhi tinggi dari atas sampai bawah */
+    
+    background-color: #414A37;
+    border-radius: 20px;
+    color: white;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 4. ISI KOLOM KIRI */
+
+.card-name {
+    /* RAHASIA BENTO: Gunakan flex-grow */
+    flex: 2; /* Ambil 2 bagian ruangan (Lebih Besar/Tinggi) */
+    width: 100%; /* Lebar penuhi kolom .main */
+    
+    background-color: #414A37;
+    border-radius: 20px;
+    color: white;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-about {
+    flex: 1; /* Ambil 1 bagian ruangan (Lebih Kecil/Pendek) */
+    width: 100%;
+    
+    background-color: #99744A;
+    border-radius: 20px;
+    color: white;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
